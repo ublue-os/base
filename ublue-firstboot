@@ -31,7 +31,7 @@ echo "5"
 echo "# Replacing Fedora Flatpaks with Flathub Ones (this may take a while)"
 /usr/bin/flatpak install --user --noninteractive org.gnome.Platform//43
 reinstallList=$(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1)
-if [ -n $reinstallList ] ; then
+if [ $(echo $reinstallList | wc -l) != 0 ] ; then
   /usr/bin/flatpak install --user --noninteractive --reinstall flathub $reinstallList
   if [ "$?" != 0 ] ; then
           zenity --error \
