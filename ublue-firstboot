@@ -64,11 +64,11 @@ if [ "$?" != 0 ] ; then
 fi
 echo "30"
 
-echo "# Installing Thunderbird"
-/usr/bin/flatpak install --user --noninteractive flathub org.mozilla.Thunderbird
+echo "# Installing Evolution"
+/usr/bin/flatpak install --user --noninteractive flathub org.gnome.Evolution
 if [ "$?" != 0 ] ; then
         zenity --error \
-          --text="Installing Thunderbird Failed"
+          --text="Installing Evolution Failed"
         exit 1
 fi
 echo "40"
