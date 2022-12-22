@@ -118,11 +118,11 @@ if [ "$?" != 0 ] ; then
 fi
 echo "90"
 
-echo "# Installing Celluloid Media Player"
-/usr/bin/flatpak install --user --noninteractive flathub io.github.celluloid_player.Celluloid
+echo "# Installing VLC Media Player"
+/usr/bin/flatpak install --user --noninteractive flathub org.videolan.VLC
 if [ "$?" != 0 ] ; then
         zenity --error \
-          --text="Installing Celluloid Failed"
+          --text="Installing VLC Failed"
         exit 1
 fi
 echo "100"
@@ -131,8 +131,8 @@ echo "# Reticulating Final Splines"
 mkdir -p "$HOME"/.config/ublue/
 touch "$HOME"/.config/ublue/firstboot-done
 
-) | 
-     
+) |
+
    zenity --progress --title="uBlue Desktop Firstboot" --percentage=0 --auto-close --no-cancel --width=300
 
 if [ "$?" != 0 ] ; then
