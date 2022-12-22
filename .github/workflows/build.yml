@@ -1,4 +1,4 @@
-name: build-ublue
+name: build-ublue-base
 on:
   pull_request:
     branches:
@@ -9,7 +9,7 @@ on:
     branches:
       - main
 env:
-    IMAGE_NAME: base
+    IMAGE_NAME: ublue-base
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
           - major_version: 37
             is_latest: true
             is_stable: true
-    steps: 
+    steps:
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
         uses: actions/checkout@v3
@@ -44,7 +44,7 @@ jobs:
             alias_tags+=("stable")
           fi
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
-             
+
       # Build image using Buildah action
       - name: Build Image
         id: build_image
