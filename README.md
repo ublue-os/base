@@ -1,20 +1,20 @@
 # base
 
-[![build-ublue](https://github.com/ublue-os/base/actions/workflows/build.yml/badge.svg)](https://github.com/ublue-os/base/actions/workflows/build.yml)
+[![build-ublue](https://github.com/graybush/ublue-base/actions/workflows/build.yml/badge.svg)](https://github.com/graybush/ublue-base/actions/workflows/build.yml)
 
-A base image with a (mostly) stock Fedora Silverblue. Help us make a sweet base image: Pull requests and improvements appreciated and encouraged!   
+A base image with a (mostly) stock Fedora Silverblue. Help us make a sweet base image: Pull requests and improvements appreciated and encouraged!
 
 ## Usage
 
 Warning: This is an experimental feature and should not be used in production, try it in a VM for a while, you have been warned!
 
-    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/ublue-os/base:latest
-    
-We build date tags as well, so if you want to rebase to a particular day's release:
-  
-    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/ublue-os/base:20221217 
+    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/graybush/ublue-os/ublue-base:latest
 
-The `latest` tag will automatically point to the latest build. 
+We build date tags as well, so if you want to rebase to a particular day's release:
+
+    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/graybush/ublue-base:20221217
+
+The `latest` tag will automatically point to the latest build.
 
 ## Features
 
@@ -29,8 +29,8 @@ The `latest` tag will automatically point to the latest build.
 ## Applications
 
 - All applications installed per user instead of system wide, similar to openSUSE MicroOS, they are not on the base image. Thanks for the inspiration Team Green!
-- Mozilla Firefox, Mozilla Thunderbird, Extension Manager, Libreoffice, DejaDup, FontDownloader, Flatseal, and the Celluloid Media Player
+- Mozilla Firefox, Evolution, Extension Manager, Libreoffice, DejaDup, FontDownloader, Flatseal, and the VLC Media Player
 - Core GNOME Applications installed from Flathub
   - GNOME Calculator, Calendar, Characters, Connections, Contacts, Evince, Firmware, Logs, Maps, NautilusPreviewer, TextEditor, Weather, baobab, clocks, eog, and font-viewer
-  
+
 
