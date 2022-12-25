@@ -62,7 +62,7 @@ jobs:
           # DEBUG: get character count of key
           wc -c cosign.key
         env:
-          COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
+          COSIGN_PRIVATE_KEY: test
 
       # Build image using Buildah action
       - name: Build Image
