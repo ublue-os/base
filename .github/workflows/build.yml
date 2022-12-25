@@ -55,6 +55,13 @@ jobs:
           fi
           echo "alias_tags=${alias_tags[*]}" >> $GITHUB_OUTPUT
 
+      # Only needed when running `cosign sign` using a key
+      - name: Write signing key to disk
+        run: |
+          echo "${{ secrets.COSIGN_PRIVATE_KEY }}" > cosign.key
+          # DEBUG: get character count of key
+          wc -c cosign.key
+
       # Build image using Buildah action
       - name: Build Image
         id: build_image
@@ -104,13 +111,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      # Only needed when running `cosign sign` using a key
-      - name: Write signing key to disk
-        run: |
-          echo "${{ secrets.COSIGN_PRIVATE_KEY }}" > cosign.key
-          # DEBUG: get character count of key
-          wc -c cosign.key
 
       - name: Sign container image
         run: |
