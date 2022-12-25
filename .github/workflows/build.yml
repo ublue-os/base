@@ -58,7 +58,7 @@ jobs:
       # Only needed when running `cosign sign` using a key
       - name: Write signing key to disk
         run: |
-          echo "$COSIGN_PRIVATE_KEY" > cosign.key
+          echo "${{ env.COSIGN_PRIVATE_KEY }}" > cosign.key
           # DEBUG: get character count of key
           wc -c cosign.key
         env:
