@@ -24,10 +24,10 @@ jobs:
       fail-fast: false
       matrix:
         major_version: [37]
-          include:
-            - major_version: 37
-              is_latest: true
-              is_stable: true
+        include:
+          - major_version: 37
+            is_latest: true
+            is_stable: true
     steps: 
       # Checkout push-to-registry action GitHub repository
       - name: Checkout Push to Registry action
