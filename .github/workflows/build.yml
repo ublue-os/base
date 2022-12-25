@@ -58,9 +58,11 @@ jobs:
       # Only needed when running `cosign sign` using a key
       - name: Write signing key to disk
         run: |
-          echo "${{ secrets.SIGNING_SECRET }}" > cosign.key
+          echo "$COSIGN_PRIVATE_KEY" > cosign.key
           # DEBUG: get character count of key
           wc -c cosign.key
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
 
       # Build image using Buildah action
       - name: Build Image
