@@ -29,7 +29,7 @@ The `latest` tag will automatically point to the latest build.
 ## Applications
 
 - All applications installed per user instead of system wide, similar to openSUSE MicroOS, they are not on the base image. Thanks for the inspiration Team Green!
-- Mozilla Firefox, Evolution, Libreoffice, DejaDup, FontDownloader, Flatseal, and the VLC Media Player
+- Mozilla Firefox, Evolution, Libreoffice, FontDownloader, Flatseal, and the VLC Media Player
 - Core GNOME Applications installed from Flathub
   - GNOME Calculator, Calendar, Characters, Connections, Contacts, Evince, Firmware, Logs, Maps, NautilusPreviewer, TextEditor, Weather, baobab, clocks, eog, and font-viewer
 
