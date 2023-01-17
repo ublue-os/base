@@ -6,19 +6,19 @@ bios:
 
 distrobox-boxkit:
   echo 'Creating Boxkit distrobox ...'
-  distrobox create --image ghcr.io/ublue-os/boxkit -n alpine 
+  distrobox create --image ghcr.io/ublue-os/boxkit -n boxkit -Y
 
 distrobox-debian:
   echo 'Creating Debian distrobox ...'
-  distrobox create --image quay.io/toolbx-images/debian-toolbox:unstable -n debian
+  distrobox create --image quay.io/toolbx-images/debian-toolbox:unstable -n debian -Y
 
 distrobox-opensuse:
   echo 'Creating openSUSE distrobox ...'
-  distrobox create --image quay.io/toolbx-images/opensuse-toolbox:tumbleweed -n opensuse
+  distrobox create --image quay.io/toolbx-images/opensuse-toolbox:tumbleweed -n opensuse -Y
  
 distrobox-ubuntu:
   echo 'Creating Ubuntu distrobox ...'
-  distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu
+  distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu -Y
   
 setup-flatpaks:
   echo 'Setting up your flatpaks...'
