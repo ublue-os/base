@@ -5,23 +5,23 @@ bios:
   systemctl reboot --firmware-setup
 
 distrobox-boxkit:
-  echo "Creating Boxkit distrobox ..."
+  echo 'Creating Boxkit distrobox ...'
   distrobox create --image ghcr.io/ublue-os/boxkit -n alpine 
 
 distrobox-debian:
-  echo "Creating Debian distrobox ..."
+  echo 'Creating Debian distrobox ...'
   distrobox create --image quay.io/toolbx-images/debian-toolbox:unstable -n debian
 
 distrobox-opensuse:
-  echo "Creating openSUSE distrobox ..."
+  echo 'Creating openSUSE distrobox ...'
   distrobox create --image quay.io/toolbx-images/opensuse-toolbox:tumbleweed -n opensuse
  
 distrobox-ubuntu:
-  echo "Creating Ubuntu distrobox ..."
+  echo 'Creating Ubuntu distrobox ...'
   distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu
   
 setup-flatpaks:
-  echo "Setting up your flatpaks..."
+  echo 'Setting up your flatpaks...'
   flatpak install -y --user \\
   com.discordapp.Discord \\
   com.mastermindzh.tidal-hifi \\
@@ -37,12 +37,12 @@ setup-flatpaks:
   us.zoom.Zoom  
   
 setup-pwa:
-  echo "Giving browser permission to create PWAs (Progressive Web Apps)"
+  echo 'Giving browser permission to create PWAs (Progressive Web Apps)'
   # Add for your favorite chromium-based browser
   flatpak override --user --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.microsoft.Edge
 
 setup-gaming:
-  echo "Setting up gaming experience ... lock and load."
+  echo 'Setting up gaming experience ... lock and load.'
   flatpak install -y --user \\
   com.discordapp.Discord \\
   com.feaneron.Boatswain \\
