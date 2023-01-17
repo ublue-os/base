@@ -56,7 +56,7 @@ setup-gaming:
   com.usebottles.bottles \\
   com.valvesoftware.Steam \\
   com.valvesoftware.Steam.Utility.gamescope \\
-  net.davidotek.pupgui2 \\
+  net.davidotek.pupgui2
   flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications 
   flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam 
   flatpak override --user --env=MANGOHUD=1 com.heroicgameslauncher.hgl 
