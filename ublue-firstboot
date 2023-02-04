@@ -29,7 +29,7 @@ fi
 echo "5"
 
 echo "# Replacing Fedora Flatpaks with Flathub Ones (this may take a while)"
-/usr/bin/flatpak install --user --noninteractive org.gnome.Platform//43
+/usr/bin/flatpak install --user --noninteractive org.freedesktop.Platform
 /usr/bin/flatpak install --user --noninteractive --reinstall flathub $(flatpak list --app-runtime=org.fedoraproject.Platform --columns=application | tail -n +1 )
 if [ "$?" != 0 ] ; then
         zenity --error \
@@ -73,14 +73,14 @@ if [ "$?" != 0 ] ; then
 fi
 echo "40"
 
-echo "# Installing Extension Manager"
-/usr/bin/flatpak install --user --noninteractive flathub com.mattjakeman.ExtensionManager
-if [ "$?" != 0 ] ; then
-        zenity --error \
-          --text="Installing Extension Manager Failed"
-        exit 1
-fi
-echo "50"
+# echo "# Installing Extension Manager"
+# /usr/bin/flatpak install --user --noninteractive flathub com.mattjakeman.ExtensionManager
+# if [ "$?" != 0 ] ; then
+#         zenity --error \
+#           --text="Installing Extension Manager Failed"
+#         exit 1
+# fi
+# echo "50"
 
 echo "# Installing LibreOffice"
 /usr/bin/flatpak install --user --noninteractive flathub org.libreoffice.LibreOffice
@@ -118,11 +118,11 @@ if [ "$?" != 0 ] ; then
 fi
 echo "90"
 
-echo "# Installing Celluloid Media Player"
-/usr/bin/flatpak install --user --noninteractive flathub io.github.celluloid_player.Celluloid
+echo "# Installing VLC Media Player"
+/usr/bin/flatpak install --user --noninteractive flathub org.videolan.VLC
 if [ "$?" != 0 ] ; then
         zenity --error \
-          --text="Installing Celluloid Failed"
+          --text="Installing VLC Failed"
         exit 1
 fi
 echo "100"
