@@ -11,7 +11,7 @@ on:
     paths-ignore:
       - "**/README.md"
 env:
-  IMAGE_NAME: base
+  IMAGE_NAME: kinoite
   IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
