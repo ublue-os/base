@@ -1,6 +1,6 @@
 # kinoite
 
-[![build-ublue](https://github.com/polluxtroy3758/kinoite/actions/workflows/build.yml/badge.svg)](https://github.com/polluxtroy3758/kinoite/actions/workflows/build.yml)
+[![build-kinoite](https://github.com/polluxtroy3758/kinoite/actions/workflows/build.yml/badge.svg)](https://github.com/polluxtroy3758/kinoite/actions/workflows/build.yml)
 
 A base image with a (mostly) stock Fedora Kinoite. Help us make a sweet base image: Pull requests and improvements appreciated and encouraged! Scroll to the bottom to see how to make your own!
 
