@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/Vanilla-OS/first-setup.git
 WORKDIR first-setup
-RUN meson build && ninja -C build
+RUN meson build --prefix /usr && ninja -C build
 RUN DESTDIR=/opt ninja -C build install
 RUN tar cfz vanilla-first-setup.tar.gz /opt
 
@@ -18,9 +18,11 @@ RUN tar cfz vanilla-first-setup.tar.gz /opt
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 # See https://pagure.io/releng/issue/11047 for final location
 
+## Install the VanillaOS first-setup utility
 COPY --from=build /first-setup/vanilla-first-setup.tar.gz /
 RUN tar xf vanilla-first-setup.tar.gz --strip-component=1 -C / && \
-    chmod +x /usr/local/bin/vanilla-first-setup
+    chmod +x /usr/bin/vanilla-first-setup && \
+    ostree container commit
 
 COPY etc /etc
 
