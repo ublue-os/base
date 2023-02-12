@@ -8,7 +8,9 @@ RUN apt-get update && apt-get install -y \
     build-essential meson libadwaita-1-dev \
     gettext desktop-file-utils git
 
-RUN git clone https://github.com/Vanilla-OS/first-setup.git
+# Checkout the last tested/known working commit, in liu of an upstream release
+RUN git clone https://github.com/Vanilla-OS/first-setup.git && \
+    cd first-setup && git checkout bf21de5
 WORKDIR first-setup
 RUN meson build --prefix /usr && ninja -C build
 RUN DESTDIR=/opt ninja -C build install
