@@ -28,6 +28,19 @@ We build date tags as well, so if you want to rebase to a particular day's relea
 
 The `latest` tag will automatically point to the latest build. Note that when a new version of Fedora is released that the `latest` tag will get updated to that latest release automatically. 
 
+## Using Container
+Build the image with FEDORA_MAJOR_VERSION:
+```
+podman build --build-arg FEDORA_MAJOR_VERSION=<VERSION> -t ublue-os/base:latest .
+```
+
+## Using Docker
+ 
+```
+mv Containerfile Dockerfile
+docker build --build-arg FEDORA_MAJOR_VERSION=<VERSION> -t ublue-os/base:latest .
+```
+
 ## Features
 
 - Start with a base Fedora Silverblue 37 image

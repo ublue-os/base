@@ -1,5 +1,5 @@
 # Multi-stage build
-ARG FEDORA_MAJOR_VERSION=37
+ARG FEDORA_MAJOR_VERSION
 
 ## Build ublue-os-base
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
@@ -8,7 +8,7 @@ FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 # Add Vanilla First Setup
 RUN wget https://copr.fedorainfracloud.org/coprs/ublue-os/vanilla-first-setup/repo/fedora-$(rpm -E %fedora)/ublue-os-vanilla-first-setup-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_ublue-os-vanilla-first-setup.repo
 
-COPY etc /etc
+COPY ${FEDORA_MAJOR_VERSION}/etc /etc
 
 COPY ublue-firstboot /usr/bin
 
