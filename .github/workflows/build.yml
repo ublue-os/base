@@ -15,7 +15,7 @@ on:
       - '**.md'
       - '**.txt'
 env:
-    IMAGE_NAME: base
+    IMAGE_NAME: os
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
