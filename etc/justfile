@@ -27,42 +27,20 @@ setup-flatpaks:
   echo 'Setting up your flatpaks...'
   flatpak install -y --user \\
   com.discordapp.Discord \\
-  com.mastermindzh.tidal-hifi \\
-  com.microsoft.Edge \\
-  com.plexamp.Plexamp \\
-  com.slack.Slack \\
   com.todoist.Todoist \\
   com.visualstudio.code \\
-  im.riot.Riot \\
-  no.mifi.losslesscut \\
-  org.standardnotes.standardnotes \\
-  tv.plex.PlexDesktop \\
-  us.zoom.Zoom  
-  
-setup-pwa:
-  echo 'Giving browser permission to create PWAs (Progressive Web Apps)'
-  # Add for your favorite chromium-based browser
-  flatpak override --user --filesystem=~/.local/share/applications --filesystem=~/.local/share/icons com.microsoft.Edge
-
-setup-gaming:
-  echo 'Setting up gaming experience ... lock and load.'
-  flatpak install -y --user \\
-  com.discordapp.Discord \\
-  com.feaneron.Boatswain \\
-  org.freedesktop.Platform.VulkanLayer.MangoHud//22.08 \\
-  org.freedesktop.Platform.VulkanLayer.OBSVkCapture//22.08 \\
-  org.freedesktop.Platform.VulkanLayer.vkBasalt//22.08 \\
-  com.heroicgameslauncher.hgl \\
-  com.obsproject.Studio \\
-  com.obsproject.Studio.Plugin.OBSVkCapture \\
-  com.obsproject.Studio.Plugin.Gstreamer \\
-  com.usebottles.bottles \\
+  org.gnome.World.Secrets \\
   com.valvesoftware.Steam \\
-  com.valvesoftware.Steam.Utility.gamescope \\
-  net.davidotek.pupgui2
-  flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications 
-  flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam 
-  flatpak override --user --env=MANGOHUD=1 com.heroicgameslauncher.hgl 
+  com.valvesoftware.Steam.CompatibilityTool.Proton-Exp \\
+  com.spotify.Client
+  
+setup-firefox:
+  echo 'Setting up Firefox...'
+  echo 'Opening firefox to generate config, please close this window.'
+  flatpak run org.mozilla.firefox
+  git clone https://github.com/rafaelmardojai/firefox-gnome-theme
+  ./firefox-gnome-theme/scripts/install.sh -f ~/.var/app/org.mozilla.firefox/.mozilla/firefox
+  rm -rf ./firefox-gnome-theme
  
 update:
   rpm-ostree update
