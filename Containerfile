@@ -14,7 +14,7 @@ COPY usr /usr
 COPY ublue-firstboot /usr/bin
 
 RUN rpm-ostree override remove firefox firefox-langpacks && \
-    rpm-ostree install distrobox gnome-tweaks just vte291-gtk4-devel vanilla-first-setup && \
+    rpm-ostree install distrobox just vanilla-first-setup && \
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable flatpak-system-update.timer && \
