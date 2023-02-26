@@ -1,0 +1,4 @@
+rpm_packages:
+  - distrobox
+  - gnome-tweaks
+  - just

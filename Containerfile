@@ -13,8 +13,26 @@ COPY usr /usr
 
 COPY ublue-firstboot /usr/bin
 
+COPY recipe.yml /etc/ublue-recipe.yml
+
+# https://github.com/TomWright/dasel is a single-binary program used for reading the recipe.yml.
+# It is not available as an rpm.
+RUN curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep linux_amd64 | grep -v .gz | cut -d\" -f 4)" -L -o /usr/bin/dasel && \
+    chmod +x /usr/bin/dasel
+
 RUN rpm-ostree override remove firefox firefox-langpacks && \
-    rpm-ostree install distrobox gnome-tweaks just vte291-gtk4-devel vanilla-first-setup && \
+    rpm-ostree install vte291-gtk4-devel vanilla-first-setup && \
+    
+    echo "-- Installing RPMs defined in recipe.yml --" && \
+    rpm_packages=$(dasel -f /etc/ublue-recipe.yml -r yaml -w json -s 'rpm_packages') && \
+    rpm_packages_count=$(echo $rpm_packages | dasel -r json -s 'len()') && \
+    for i in $( seq 0 $(($rpm_packages_count-1)) ); do \
+        pkg=$(echo $rpm_packages | dasel -r json "[${i}]" | tr -d '"') && \
+        echo "Installing: ${pkg}" && \
+        rpm-ostree install $pkg; \
+    done && \ 
+    echo "---" && \
+
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable flatpak-system-update.timer && \
