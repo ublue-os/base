@@ -56,11 +56,10 @@ fi
 echo "25"
 
 echo "# Installing flatpaks from recipe"
-flatpaks=$(dasel -f /etc/ublue-recipe.yml -r yaml -w json -s 'flatpaks')
-flatpaks_count=$(echo $flatpaks | dasel -r json -s 'len()')
-
-for i in $(seq 0 $(($flatpaks_count-1))); do
-  pkg=$(echo $flatpaks | dasel -r json "[${i}]" | tr -d '"')
+flatpaks=$(yq '.flatpaks[]' < /etc/ublue-recipe.yml)
+flatpaks_count=$(yq '.flatpaks[]' < /etc/ublue-recipe.yml | wc -l)
+i=0
+for pkg in $flatpaks; do
   echo "# Installing ${pkg}"
   /usr/bin/flatpak install --user --noninteractive flathub $pkg
   if [ "$?" != 0 ] ; then
@@ -68,6 +67,7 @@ for i in $(seq 0 $(($flatpaks_count-1))); do
             --text="Installing ${pkg} Failed"
           exit 1
   fi
+  i=$((i+1))
   # Automatically calculates evenly spaced progess using bc, cuts everything after decimal point.
   echo "${i}/${flatpaks_count} * (95-30) + 30" | bc -l | cut -d "." -f1 
 done
