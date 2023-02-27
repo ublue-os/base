@@ -14,6 +14,7 @@ on:
     paths-ignore:
       - '**.md'
       - '**.txt'
+  workflow_dispatch:
 env:
     IMAGE_NAME: blue-kinoite
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
