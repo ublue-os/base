@@ -1,6 +1,6 @@
 # base
 
-[![build-ublue](https://github.com/ublue-os/base/actions/workflows/build.yml/badge.svg)](https://github.com/ublue-os/base/actions/workflows/build.yml)
+[![build-ublue](https://github.com/jewelpit/blue-kinoite/actions/workflows/build.yml/badge.svg)](https://github.com/jewelpit/blue-kinoite/actions/workflows/build.yml)
 
 A base image with a (mostly) stock Fedora Silverblue. Help us make a sweet base image: Pull requests and improvements appreciated and encouraged! Scroll to the bottom to see how to make your own!
 
@@ -21,11 +21,11 @@ These github actions and methods are meant to be shared and improved upon, [so c
 
 To rebase an existing Silverblue/Kinoite machine to the latest release (37): 
 
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/base:37
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/jewelpit/blue-kinoite:37
     
 We build date tags as well, so if you want to rebase to a particular day's release:
   
-    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/ublue-os/base:20221217 
+    sudo rpm-ostree rebase ostree-unverified-registry:ghcr.io/jewelpit/blue-kinoite:20221217 
 
 The `latest` tag will automatically point to the latest build. Note that when a new version of Fedora is released that the `latest` tag will get updated to that latest release automatically. 
 
@@ -71,7 +71,7 @@ Check the [just website](https://just.systems) for tips on modifying and adding 
 
 These images are signed with sisgstore's [cosign](https://docs.sigstore.dev/cosign/overview/). You can verify the signature by downloading the `cosign.pub` key from this repo and running the following command:
 
-    cosign verify --key cosign.pub ghcr.io/ublue-os/base
+    cosign verify --key cosign.pub ghcr.io/jewelpit/blue-kinoite
     
 If you're forking this repo you should [read the docs](https://docs.github.com/en/actions/security-guides/encrypted-secrets) on keeping secrets in github. You need to [generate a new keypair](https://docs.sigstore.dev/cosign/overview/) with cosign. The public key can be in your public repo (your users need it to check the signatures), and you can paste the private key in Settings -> Secrets -> Actions.
 

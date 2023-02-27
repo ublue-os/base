@@ -15,7 +15,7 @@ on:
       - '**.md'
       - '**.txt'
 env:
-    IMAGE_NAME: base
+    IMAGE_NAME: blue-kinoite
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
 
 jobs:
@@ -69,7 +69,7 @@ jobs:
           images: |
             ${{ env.IMAGE_NAME }}
           labels: |
-            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/ublue-os/base/main/README.md
+            io.artifacthub.package.readme-url=https://raw.githubusercontent.com/jewelpit/blue-kinoite/main/README.md
             io.artifacthub.package.logo-url=https://avatars.githubusercontent.com/u/120078124?s=200&v=4
       
       # Build image using Buildah action

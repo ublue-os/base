@@ -2,7 +2,7 @@
 
 Thanks for taking the time to look into helping out!
 All contributions are appreciated! 
-Please refer to our [Code of Conduct](https://github.com/ublue-os/base/blob/main/CODE_OF_CONDUCT.md) while you're at it!
+Please refer to our [Code of Conduct](https://github.com/jewelpit/blue-kinoite/blob/main/CODE_OF_CONDUCT.md) while you're at it!
 
 Feel free to report issues as you find them, and [helping others in the discussions]() is always appreciated.
 
@@ -88,7 +88,7 @@ Building locally is much faster than building in GitHub and is a good way to mov
 
 ### Clone the repo you want
 
-    git clone https://github.com/ublue-os/base.git
+    git clone https://github.com/jewelpit/blue-kinoite.git
 
 ### Build the image
     
