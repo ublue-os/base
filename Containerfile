@@ -23,3 +23,5 @@ RUN rpm-ostree override remove firefox firefox-langpacks && \
         /tmp/* \
         /var/* && \
     ostree container commit
+
+#TEST
