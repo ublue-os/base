@@ -23,7 +23,7 @@ jobs:
   push-ghcr:
     name: Build and push image
     runs-on: ubuntu-22.04
-    if: contains(github.event.pull_request.labels.*.name, 'ok-to-build')
+    #if: contains(github.event.pull_request.labels.*.name, 'ok-to-build')
     permissions:
       contents: read
       packages: write
