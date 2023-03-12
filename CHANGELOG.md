@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/ublue-os/base/compare/v1.1.0...v1.1.1) (2023-03-12)
+
+
+### Bug Fixes
+
+* build offcycle from everything else ([#111](https://github.com/ublue-os/base/issues/111)) ([e6bb18e](https://github.com/ublue-os/base/commit/e6bb18e89a4427e121ea4952ac40080f98361db6))
+
 ## [1.1.0](https://github.com/ublue-os/base/compare/v1.0.0...v1.1.0) (2023-03-03)
 
 
