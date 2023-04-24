@@ -24,15 +24,14 @@ distrobox-ubuntu:
   distrobox create --image quay.io/toolbx-images/ubuntu-toolbox:22.04 -n ubuntu -Y
 
 setup-flatpaks:
+  #!/bin/bash
   echo 'Installing flatpaks from the ublue recipe ...'
-  flatpaks=$(dasel -f /etc/ublue-recipe.yml -r yaml -w json -s 'flatpaks')
-  flatpaks_count=$(echo $flatpaks | dasel -r json -s 'len()')
-  for i in $(seq 0 $(($flatpaks_count-1))); do
-    pkg=$(echo $flatpaks | dasel -r json "[${i}]" | tr -d '"')
-    echo "# Installing ${pkg}"
-    flatpak install --user --noninteractive flathub $pkg
+  flatpaks=$(yq '.flatpaks[]' < /etc/ublue-recipe.yml)
+  for pkg in $flatpaks; do \
+      echo "Installing: ${pkg}" && \
+      flatpak install --user --noninteractive flathub $pkg; \
   done
-  
+
 setup-pwa:
   echo 'Giving browser permission to create PWAs (Progressive Web Apps)'
   # Add for your favorite chromium-based browser
@@ -58,7 +57,11 @@ setup-gaming:
   flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam 
   flatpak override --user --env=MANGOHUD=1 com.heroicgameslauncher.hgl 
  
-update:
+ update:
   rpm-ostree update
   flatpak update -y
   distrobox upgrade -a
+  
+ nix-setup:
+  sudo echo "Setting up nix"
+  bash <(curl -s https://raw.githubusercontent.com/dnkmmr69420/nix-installer-scripts/main/installer-scripts/silverblue-nix-installer.sh)
